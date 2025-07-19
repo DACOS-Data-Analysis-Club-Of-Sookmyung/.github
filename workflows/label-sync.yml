@@ -1,0 +1,13 @@
+name: Sync Labels
+
+on:
+  workflow_dispatch:  # 수동 실행 버튼 만들기
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: crazy-max/ghaction-github-labeler@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          yaml_file: .github/labels.yml
