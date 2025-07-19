@@ -1,0 +1,25 @@
+name: Sync All Repositories Labels
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0" # 매주 일요일 0시 자동 실행
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install pyyaml requests
+
+      - name: Run label sync script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/sync_labels.py
