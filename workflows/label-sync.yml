@@ -1,7 +1,7 @@
 name: Sync labels
 on:
   workflow_dispatch:
-  
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -10,4 +10,3 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           yaml-file: labels.yml
-
