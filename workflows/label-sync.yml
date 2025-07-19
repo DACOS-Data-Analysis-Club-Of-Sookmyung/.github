@@ -1,16 +1,13 @@
-name: Sync Labels
-
+name: Sync labels
 on:
-  push:
-    paths:
-      - .github/labels.yml
-  workflow_dispatch:  # 수동 실행도 가능하게
-
+  workflow_dispatch:
+  
 jobs:
-  sync-labels:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: crazy-max/ghaction-github-labeler@v4
+      - uses: EndBug/label-sync@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          yaml_file: '${{ github.workspace }}/.github/labels.yml'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          yaml-file: labels.yml
+
