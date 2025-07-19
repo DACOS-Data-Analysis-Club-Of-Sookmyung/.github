@@ -1,10 +1,3 @@
----
-name: 🐛 버그 제보
-about: 코드 또는 데이터에서 발견된 문제를 보고합니다.
-title: "[BUG] [영역] 문제 요약"
-labels: bug
-assignees: ''
----
 
 ## 📝 문제 설명
 
